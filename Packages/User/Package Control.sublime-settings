@@ -1,0 +1,34 @@
+{
+	"bootstrapped": true,
+	"debug": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"AutoHotkey",
+		"CaseConversion",
+		"FileDiffs",
+		"GitSavvy",
+		"Google Spell Check",
+		"Indent XML",
+		"JsonTree",
+		"Markdown Table Formatter",
+		"MarkdownEditing",
+		"MarkdownPreview",
+		"Multicommand",
+		"Package Control",
+		"spotify-control",
+		"sublime_scratchpad",
+		"SublimeDataConverter",
+		"Table Editor",
+		"Terminus",
+		"Theme - Brogrammer",
+		"Whitespace Removal"
+	],
+	"repositories":
+	[
+		"https://github.com/ozzzzysh/"
+	]
+}

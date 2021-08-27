@@ -1,0 +1,543 @@
+[
+	// Open this Keybindings window
+	{ "keys": ["f1"],
+		"command": "edit_settings", "args":
+		{
+			"base_file": "${packages}/Default/Default ($platform).sublime-keymap",
+			"default": "[\n\t$0\n]\n"
+		},
+	},
+
+	// Useful Hotkeys Cheatsheet
+
+	// Navigation
+	// Search Files:				CTRL+P
+	// Toggle Folder Browser:		CTRL+K, CTRL+SPACE
+	// Go To (Other) Brace/Paren:	CTRL+M
+	// Scroll Up and Down:			CTRL+UP/DOWN
+	// Go To The Actual Home/End:	CTRL+HOME/END
+
+	// Selection
+	// Add Another Cursor Manually:	CTRL+CLICK
+	// Add Another Cursor Up/Down:	CTRL+UP/DOWN
+	// Select Word:					CTRL+D
+	// Select the next THIS:		CTRL+D
+	// Skip THIS:					CTRL+E
+	// Undo a CTRL+D Selection:		CTRL+K, CTRL+Z
+	// Redo a CTRL+D Selection:		CTRL+K, CTRL+Y
+	// Find THIS Backwards:			CTRL+SHIFT+D
+	// Select Between Braces/Parens:CTRL+SHIFT+M
+
+	// Manipulation
+	// Toggle Comment:				CTRL+/
+	// Move THIS Line(s) Up/Down:	ALT+UP/DOWN
+	// Make THIS Uppercase:			CTRL+K, CTRL+U
+	// Make THIS Lowercase:			CTRL+K, CTRL+L
+	// Paste and Fix Indentation:	CTRL+SHIFT+V
+	// Paste Buffer:				CTRL+K, CTRL+V
+
+	// Sublime Stuff
+	// Command Search:				CTRL+SHIFT+P
+	// Set Number Of Panes (Groups):ALT+SHIFT+1/2/3/4
+	// Focus Next Pane:				CTRL+ALT+RIGHT
+	// Focus Previous Pane:			CTRL+ALT+LEFT
+	// Move Tab To Next Pane:		CTRL+SHIFT+ALT+RIGHT
+	// Move Tab To Previous Pane:	CTRL+SHIFT+ALT+LEFT
+
+	// Show Code Actions
+	{ "keys": ["ctrl+space"], "command": "lsp_code_actions", "context": [{"key": "setting.lsp_active"}]},
+
+	// Go To Definition
+	{"keys": ["f12"], "command": "lsp_symbol_definition", "context": [{"key": "setting.lsp_active"}]},
+
+	// Open Containing Folder
+	{ "keys": ["ctrl+shift+o"], "command": "prompt_open_folder", "args": {"path": "$file_path"} },
+
+	// Save All
+	{ "keys": ["ctrl+shift+s"], "command": "save_all" },
+
+	// Switching Tabs
+	{ "keys": ["ctrl+tab"], "command": "next_view" },
+	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+	{ "keys": ["alt+left"], "command": "prev_view" },
+	{ "keys": ["alt+right"], "command": "next_view" },
+
+	// Clear default line swapping
+	{ "keys": ["ctrl+shift+up"], "command": "swap_line_up" },
+	{ "keys": ["ctrl+shift+down"], "command": "swap_line_down" },
+
+	// ALT Up/Down line swapping
+	{ "keys": ["alt+up"], "command": "swap_line_up" },
+	{ "keys": ["alt+down"], "command": "swap_line_down" },
+
+	// Clear CTRL U for Eclipse integration
+	{ "keys": ["ctrl+u"], "command": "" },
+	{ "keys": ["ctrl+shift+u"], "command": "" },
+
+	// Subword navigation
+	{ "keys": ["ctrl+left"], "command": "move", "args": {"by": "subwords", "forward": false} },
+	{ "keys": ["ctrl+right"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
+	{ "keys": ["ctrl+shift+left"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
+	{ "keys": ["ctrl+shift+right"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
+
+	// I'm using Alt+Arrow for tab switching now
+	// Alt+Arrow Home/End
+	// { "keys": ["alt+left"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+	// { "keys": ["alt+right"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+
+	// Jump Backward and Forward
+	{ "keys": ["ctrl+,"], "command": "jump_back" },
+	{ "keys": ["ctrl+."], "command": "jump_forward" },
+
+	// Hard BOL and EOL
+	{ "keys": ["ctrl+home"], "command": "move_to", "args": {"to": "hardbol", "extend": false } },
+	{ "keys": ["ctrl+end"], "command": "move_to", "args": {"to": "hardeol", "extend": false } },
+	{ "keys": ["ctrl+shift+home"], "command": "move_to", "args": {"to": "hardbol", "extend": true } },
+	{ "keys": ["ctrl+shift+end"], "command": "move_to", "args": {"to": "hardeol", "extend": true } },
+
+	// Clear Insert
+	{ "keys": ["insert"], "command": "" },
+
+	// Clear Transpose
+	// { "keys": ["ctrl+t"], "command": "" },
+
+	// Clear Macro
+	{ "keys": ["ctrl+shift+k"], "command": "" },
+
+	// Select Next Instance
+	// The condition here prevents find_under_expand from doing a whole word find
+	// when there's no selection.
+	// Sources:
+	// https://github.com/sublimehq/sublime_text/issues/2282
+	// https://forum.sublimetext.com/t/bug-unexpected-behavior-find-under-expand/6757
+	{ "keys": ["ctrl+t"], "command": "expand_selection", "args": {"to": "word"}, "context": [{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true } ] },
+	{ "keys": ["ctrl+t"], "command": "find_under_expand", "context": [{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true } ] },
+
+	{ "keys": ["ctrl+d"], "command": "find_under_expand_skip" },
+
+	// The following two are the same but I subconsciously hit either key, so
+	// I duplicated it rather than fixing my habits. :)
+	{ "keys": ["ctrl+shift+t"], "command": "find_under_prev" },
+	{ "keys": ["ctrl+shift+d"], "command": "find_under_prev" },
+
+	// Slurp Find
+	{ "keys": ["ctrl+e"], "command": "slurp_find_string" },
+
+	// Select Scope
+	{ "keys": ["ctrl+shift+m"], "command": "expand_selection", "args": {"to": "scope"} },
+
+	// Select to Brackets
+	{ "keys": ["ctrl+shift+space"], "command": "expand_selection", "args": {"to": "brackets"} },
+
+	// Focus Groups
+	{ "keys": ["ctrl+alt+left"], "command": "focus_neighboring_group", "args": {"forward": false} },
+	{ "keys": ["ctrl+alt+right"], "command": "focus_neighboring_group" },
+	{ "keys": ["ctrl+alt+shift+left"], "command": "move_to_neighboring_group", "args": {"forward": false} },
+	{ "keys": ["ctrl+alt+shift+right"], "command": "move_to_neighboring_group" },
+
+	// Wrap Selection in Quotes/Parens/Braces
+	{ "keys": ["ctrl+shift+'"], "command": "insert_snippet", "args": {"contents": "\"${0:$SELECTION}\""}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+'"], "command": "insert_snippet", "args": {"contents": "'${0:$SELECTION}'"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+shift+9"], "command": "insert_snippet", "args": {"contents": "(${0:$SELECTION})"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+["], "command": "insert_snippet", "args": {"contents": "[${0:$SELECTION}]"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+shift+["], "command": "insert_snippet", "args": {"contents": "{${0:$SELECTION}}"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true }
+		]
+	},
+
+	// Create Pair of Quotes/Parens/Braces
+	{ "keys": ["ctrl+shift+'"], "command": "insert_snippet", "args": {"contents": "\"$0\""}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			// { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|\\}|>|$)", "match_all": true },
+			// { "key": "preceding_text", "operator": "not_regex_contains", "operand": "[\"a-zA-Z0-9_]$", "match_all": true },
+			// { "key": "eol_selector", "operator": "not_equal", "operand": "string.quoted.double - punctuation.definition.string.end", "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+'"], "command": "insert_snippet", "args": {"contents": "'$0'"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			// { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|\\}|>|$)", "match_all": true },
+			// { "key": "preceding_text", "operator": "not_regex_contains", "operand": "['a-zA-Z0-9_]$", "match_all": true },
+			// { "key": "eol_selector", "operator": "not_equal", "operand": "string.quoted.single - punctuation.definition.string.end", "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+shift+9"], "command": "insert_snippet", "args": {"contents": "($0)"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			// { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|;|\\}|$)", "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+["], "command": "insert_snippet", "args": {"contents": "[$0]"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			// { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|;|\\}|$)", "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+shift+["], "command": "insert_snippet", "args": {"contents": "{$0}"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			// { "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|\\}|$)", "match_all": true }
+		]
+	},
+
+	// Backspace Deletes Quote/Parens/Braces Pair
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\"$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\"", "match_all": true },
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "'$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^'", "match_all": true },
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\($", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\)", "match_all": true },
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\[$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\]", "match_all": true },
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\{$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\}", "match_all": true },
+		]
+	},
+
+	// Delete Wrapping Parens/Braces
+	// Before: arst (arst)
+	// After: arst arst
+	{
+		"keys": ["ctrl+backspace"],
+		"context": [
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "((\\(.*\\))|(\\[.*\\])|(\\{.*\\}))$", "match_all": true },
+		],
+		"command": "multicommand", "args": {
+			"commands":
+			[
+				// HACK: Show and hide the GOTO Line overlay to push this cursor position
+				// into the Jump Stack
+				{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+				{"command": "hide_overlay"},
+				{"command": "move_to", "args": {"to": "brackets"}},
+				{"command": "right_delete"},
+				{"command": "jump_back"},
+				{"command": "left_delete"},
+			]
+		}
+	},
+
+	// Delete Wrapping Parens/Braces (in comment)
+	// Before: // arst (arst)
+	// After: // arst arst
+	{
+		"keys": ["ctrl+backspace"],
+		"context": [
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(\\/\\*.*)|(\\/\\/.*)((\\(.*\\))|(\\[.*\\])|(\\{.*\\}))$", "match_all": true },
+		],
+		"command": "multicommand", "args": {
+			"commands":
+			[
+				// HACK: Show and hide the GOTO Line overlay to push this cursor position
+				// into the Jump Stack
+				{"command": "toggle_comment"},
+				{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+				{"command": "hide_overlay"},
+				{"command": "move_to", "args": {"to": "brackets"}},
+				{"command": "right_delete"},
+				{"command": "jump_back"},
+				{"command": "left_delete"},
+				{"command": "toggle_comment"},
+			]
+		}
+	},
+
+	// Delete Wrapping Parens/Braces (multiline fallback)
+	// Before: arst {
+	// 	arst
+	// }
+	// After: arst 
+	// 	arst
+	// 
+	{
+		"keys": ["ctrl+backspace"],
+		"context": [
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "((\\))|(\\])|(\\}))$", "match_all": true },
+		],
+		"command": "multicommand", "args": {
+			"commands":
+			[
+				// HACK: Show and hide the GOTO Line overlay to push this cursor position
+				// into the Jump Stack
+				{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+				{"command": "hide_overlay"},
+				{"command": "move_to", "args": {"to": "brackets"}},
+				{"command": "right_delete"},
+				{"command": "jump_back"},
+				{"command": "left_delete"},
+			]
+		}
+	},
+
+	// Clear existing ctrl+shift+backspace bindings
+	{ "keys": ["ctrl+shift+backspace"], "command": "" },
+
+	// Delete Wrapping Function/Parens
+	// Before: arst arst(arst)
+	// After: arst arst
+	{
+		"keys": ["ctrl+shift+backspace"],
+		"context": [
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(\\w+\\(.*\\))$", "match_all": true },
+		],
+		"command": "multicommand", "args": {
+			"commands":
+			[
+				// HACK: Show and hide the GOTO Line overlay to push this cursor position
+				// into the Jump Stack
+				{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+				{"command": "hide_overlay"},
+				{"command": "move_to", "args": {"to": "brackets"}},
+				{"command": "expand_selection", "args": {"to": "word"}},
+				{"command": "left_delete"},
+				{"command": "right_delete"},
+				{"command": "jump_back"},
+				{"command": "left_delete"},
+			]
+		}
+	},
+
+	// Delete Wrapping Function/Parens (in comment)
+	// Before: // arst arst(arst)
+	// After: // arst arst
+	{
+		"keys": ["ctrl+shift+backspace"],
+		"context": [
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(\\/\\*.*)|(\\/\\/.*)(\\w+\\(.*\\))$", "match_all": true },
+		],
+		"command": "multicommand", "args": {
+			"commands":
+			[
+				// HACK: Show and hide the GOTO Line overlay to push this cursor position
+				// into the Jump Stack
+				{"command": "toggle_comment"},
+				{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+				{"command": "hide_overlay"},
+				{"command": "move_to", "args": {"to": "brackets"}},
+				{"command": "expand_selection", "args": {"to": "word"}},
+				{"command": "left_delete"},
+				{"command": "right_delete"},
+				{"command": "jump_back"},
+				{"command": "left_delete"},
+				{"command": "toggle_comment"},
+			]
+		}
+	},
+
+	// Move through Quote/Paren/Brace/Semicolon/Comma with Tab
+	{ "keys": ["tab"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "(^\"|^'|^\\(|^\\)|^\\[|^\\]|^{|^}|^;|^,)", "match_all": true },
+			// The following prevents problems indenting lines if the cursor is
+			// at the beginning of a line
+			{ "key": "preceding_text", "operator": "not_regex_match", "operand": "^\\s*$", "match_all": true },
+		]
+	},
+
+	// Put Semicolon at EOL
+	{ "keys": ["ctrl+shift+;"], "command": "multicommand", "args": { "commands":
+		[
+			// HACK: Show and hide the GOTO Line overlay to push this cursor position
+			// into the Jump Stack
+			{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+			{"command": "hide_overlay"},
+			{"command": "move_to", "args": {"to": "eol"} },
+			{"command": "insert", "args": {"characters": ";"}},
+			{"command": "jump_back"},
+		]}
+	},
+
+	// Put Comma at EOL
+	{ "keys": ["ctrl+shift+,"], "command": "multicommand", "args": { "commands":
+		[
+			// HACK: Show and hide the GOTO Line overlay to push this cursor position
+			// into the Jump Stack
+			{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+			{"command": "hide_overlay"},
+			{"command": "move_to", "args": {"to": "eol"} },
+			{"command": "insert", "args": {"characters": ","}},
+			{"command": "jump_back"},
+		]}
+	},
+
+	// Put Period at EOL
+	{ "keys": ["ctrl+shift+."], "command": "multicommand", "args": { "commands":
+		[
+			// HACK: Show and hide the GOTO Line overlay to push this cursor position
+			// into the Jump Stack
+			{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+			{"command": "hide_overlay"},
+			{"command": "move_to", "args": {"to": "eol"} },
+			{"command": "insert", "args": {"characters": "."}},
+			{"command": "jump_back"},
+		]}
+	},
+
+	// Copy line
+	{
+		"keys": ["ctrl+shift+c"],
+		"context": [
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+		],
+		"command": "multicommand", "args": {
+			"commands":
+			[
+				// HACK: Show and hide the GOTO Line overlay to push this cursor position
+				// into the Jump Stack
+				{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+				{"command": "hide_overlay"},
+				{"command": "move_to", "args": {"to": "hardbol", "extend": false}},
+				{"command": "move_to", "args": {"to": "bol", "extend": false}},
+				{"command": "move_to", "args": {"to": "hardeol", "extend": true}},
+				{"command": "copy"},
+				{"command": "jump_back"},
+			]
+		}
+	},
+
+	// Cut line
+	{
+		"keys": ["ctrl+shift+x"],
+		"context": [
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+		],
+		"command": "multicommand", "args": {
+			"commands":
+			[
+				// HACK: Show and hide the GOTO Line overlay to push this cursor position
+				// into the Jump Stack
+				{"command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+				{"command": "hide_overlay"},
+				{"command": "move_to", "args": {"to": "hardbol", "extend": false}},
+				{"command": "move_to", "args": {"to": "bol", "extend": false}},
+				{"command": "move_to", "args": {"to": "hardeol", "extend": true}},
+				{"command": "cut"},
+			]
+		}
+	},
+
+	// Open a terminal tab at current file directory
+	{
+		"keys": ["ctrl+alt+t"], "command": "terminus_open", "args": {
+			"cwd": "${file_path:${folder}}"
+		}
+	},
+
+	// --- CTRL K Chords ---
+
+	// Remove most CTRL K Chord shortcuts
+	{ "keys": ["ctrl+k", "ctrl+a"], "command": "" },
+	{ "keys": ["ctrl+k", "ctrl+w"], "command": "" },
+	{ "keys": ["ctrl+k", "ctrl+x"], "command": "" },
+	{ "keys": ["ctrl+k", "ctrl+y"], "command": "" },
+	{ "keys": ["ctrl+k", "ctrl+k"], "command": "" },
+	{ "keys": ["ctrl+k", "ctrl+backspace"], "command": "" },
+	{ "keys": ["ctrl+k", "ctrl+g"], "command": "" },
+
+	// Paste from paste_from_history
+	{ "keys": ["ctrl+k", "ctrl+v"], "command": "paste_from_history" },
+
+	// Lowercase and Uppercase
+	{ "keys": ["ctrl+k", "ctrl+b"], "command": "lower_case" },
+	{ "keys": ["ctrl+k", "ctrl+m"], "command": "upper_case" },
+
+	// Cycle cases
+	{ "keys": ["ctrl+k", "ctrl+h"], "command": "toggle_case"},
+	{ "keys": ["ctrl+shift+k", "ctrl+shift+h"], "command": "toggle_case_backwards"},
+
+	// Dash case
+	{ "keys": ["ctrl+k", "ctrl+n"], "command": "convert_to_dash"},
+
+	// Transpose
+	{ "keys": ["ctrl+k", "ctrl+t"], "command": "transpose" },
+
+	// Scroll to center selected line
+	//{ "keys": ["ctrl+k", "ctrl+k"], "command": "show_at_center" },
+
+	// GOTO Definition and Reference
+	{ "keys": ["ctrl+k", "ctrl+d"], "command": "goto_definition" },
+	{ "keys": ["ctrl+k", "ctrl+r"], "command": "goto_reference" },
+
+	// Git Status
+	{ "keys": ["ctrl+k", "ctrl+s"], "command": "gs_show_status" },
+
+	// Soft Undo/Redo for Select Next Instance
+	{ "keys": ["ctrl+k", "ctrl+z"], "command": "soft_undo" },
+	{ "keys": ["ctrl+k", "ctrl+y"], "command": "soft_redo" },
+
+	// Scratchpad
+	{ "keys": ["ctrl+k", "ctrl+k"], "command": "open_scratchpad" },
+
+	// Open sidebar
+	{ "keys": ["ctrl+k", "ctrl+space"], "command": "toggle_side_bar" },
+
+	// --- END CTRL K Chords
+]
