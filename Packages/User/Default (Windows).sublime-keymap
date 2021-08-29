@@ -543,8 +543,11 @@
 	// Scratchpad
 	{ "keys": ["ctrl+k", "ctrl+k"], "command": "open_scratchpad" },
 
-	// Open sidebar
+	// Open Sidebar
 	{ "keys": ["ctrl+k", "ctrl+space"], "command": "toggle_side_bar" },
+
+	// Fold Level 1
+	{ "keys": ["ctrl+k", "ctrl+f"], "command": "fold_all_sections", "args" : { "target_level" : 1 } },
 
 	// --- END CTRL K Chords
 ]
