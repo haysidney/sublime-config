@@ -491,6 +491,13 @@
 		}
 	},
 
+	{ "keys": ["ctrl+backspace"],      "command": "open_recently_closed_file", "args": { "action": "delete_current_entry"},
+		"context": [
+			{ "key": "overlay_visible" },
+			{ "key": "file_history_overlay_visible" }
+		]
+	},
+
 	// --- CTRL K Chords ---
 
 	// Remove most CTRL K Chord shortcuts
